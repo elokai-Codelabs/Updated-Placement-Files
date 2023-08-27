@@ -1,0 +1,71 @@
+{% extends 'app/dashboard/base.html' %} {% load static %}
+<!--  -->
+{% block content %}
+<section class="section dashboard">
+  <div class="row">
+    <!-- Left side columns -->
+    <div class="col-lg-12">
+      <div class="row">
+        <!-- Fellowship Population -->
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <div style="text-align: center">
+                <h4 class="card-title">Select Your Choice of Program</h4>
+                <h6>You have only 3 choices</h6>
+              </div>
+
+              <!-- Vertical Form -->
+              <form class="row g-3">
+                <!-- FIRST CHOICE -->
+                <div class="col-12">
+                  <label for="inputEmail4" class="form-label"
+                    >First Choice</label
+                  >
+                  <select id="inputState" class="form-select">
+                    {% for program in programs %}
+                    <option>{{program}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <!-- SECOND CHOICE -->
+                <div class="col-12">
+                  <label for="inputEmail4" class="form-label"
+                    >Second Choice</label
+                  >
+                  <select id="inputState" class="form-select">
+                    <option selected>SINGLE MAJOR COMPUTER SCIENCE</option>
+                    <option>SINGLE MAJOR MATHEMATICS</option>
+                    <option>SINGLE MAJOR ACTUARIAL SCIENCE</option>
+                    <option selected>SINGLE MAJOR STATISTICS</option>
+                  </select>
+                </div>
+                <!-- THIRD CHOICE -->
+                <div class="col-12">
+                  <label for="inputEmail4" class="form-label"
+                    >Third Choice</label
+                  >
+                  <select id="inputState" class="form-select">
+                    <option selected>SINGLE MAJOR COMPUTER SCIENCE</option>
+                    <option>SINGLE MAJOR MATHEMATICS</option>
+                    <option selected>SINGLE MAJOR ACTUARIAL SCIENCE</option>
+                    <option>SINGLE MAJOR STATISTICS</option>
+                  </select>
+                </div>
+
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+              <!-- Vertical Form -->
+            </div>
+          </div>
+        </div>
+        <!-- Fellowship population -->
+      </div>
+    </div>
+    <!-- End Left side columns -->
+  </div>
+</section>
+{% endblock %}
+<!-- End #main -->

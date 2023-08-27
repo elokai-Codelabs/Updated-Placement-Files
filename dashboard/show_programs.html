@@ -1,0 +1,253 @@
+{% extends 'app/dashboard/base.html' %} {% load static %}
+<!--  -->
+{% block content %}
+<section class="section">
+  <!-- alert message start -->
+  {% if messages %} {% for message in messages %}
+  <div
+    class="alert alert-success bg-success text-light border-0 alert-dismissible fade show"
+    role="alert"
+  >
+    {{message}}
+    <button
+      type="button"
+      class="btn-close btn-close-white"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+  {% endfor %} {% endif %}
+  <!-- alert message end -->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">AVAILABLE PROGRAMS</h5>
+          <div class="binary-container">
+            <!-- ASSETS>CSS>STYLE.CSS> -->
+            <div class="binary_content">
+              <!-- BASIC MODAL START -->
+
+              <!-- Basic Modal -->
+              <button
+                type="button"
+                class="btn btn-primary sm"
+                data-bs-toggle="modal"
+                data-bs-target="#basicModal"
+              >
+                <i class="bi bi-upload" style="font-size: 1.4rem"></i>&nbsp;
+                Upload from excel sheet
+              </button>
+              <div class="modal fade" id="basicModal" tabindex="-1">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">STEPS TO FOLLOW</h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <ol>
+                        <li>
+                          <a
+                            href="{% static 'excel_template/programs.xlsx' %}"
+                            download
+                            >Click here to Download the template file</a
+                          >
+                        </li>
+                        <li>Provide accurate information under each column</li>
+                        <li>
+                          Click on
+                          <span style="font-weight: 900">Choose File</span> to
+                          select the file and click on
+                          <span style="font-weight: 900">Upload File</span> to
+                          Submit
+                        </li>
+                        <br />
+                        <a href="" class="btn btn-primary">
+                          <form
+                            action="{% url 'read_program'%}"
+                            method="post"
+                            enctype="multipart/form-data"
+                            id="upload-form"
+                          >
+                            {% csrf_token %}
+                            <input type="file" name="file" id="file" />
+
+                            <button type="submit" id="upload-button">
+                              <i
+                                class="bi bi-upload"
+                                style="font-size: 1.4rem"
+                              ></i
+                              >&nbsp; Upload File
+                            </button>
+                          </form>
+                        </a>
+                      </ol>
+                      <br />
+                      <p>
+                        <span style="font-weight: 900">NOTE THE FOLLOWING</span>
+                      </p>
+                      <!-- note for users -->
+                      <ul>
+                        <li>Hyphens (-) are not allowed in compound words</li>
+                        <li>
+                          Each word must begin with a capital letter
+                          (Capitalize)
+                        </li>
+                        <li>
+                          All columns apart from the first column can be null
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End Basic Modal-->
+
+              <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                  // Get references to the form and upload button
+                  const form = document.getElementById("upload-form");
+                  const uploadButton = document.getElementById("upload-button");
+
+                  // Add an event listener to the form submission
+                  form.addEventListener("submit", function (event) {
+                    if (!document.getElementById("file").value) {
+                      // Prevent form submission
+                      event.preventDefault();
+
+                      // Display an error message to the user
+                      alert("Please select a file before uploading.");
+                    }
+                  });
+                });
+              </script>
+
+              <!-- BASIC MODAL ENDS -->
+            </div>
+            <div class="binary_content">
+              <!--  -->
+              <a href="{% url 'create-program'%}" class="btn btn-secondary">
+                <i class="bi bi-align-center" style="font-size: 1.4rem"></i>Add
+                New program
+              </a>
+            </div>
+          </div>
+
+          <!-- Table with stripped rows -->
+          <div class="table-responsive">
+            <table class="table datatable">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+
+                  <th scope="col">Name of Program</th>
+
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% if programs %}
+                <!--  -->
+                {% for program in programs %}
+                <tr>
+                  <th scope="row">{{forloop.counter}}</th>
+
+                  <td>{{program.name}}</td>
+
+                  <td class="d-flex">
+                    <a
+                      href="{% url 'edit-program' program.id %}"
+                      class="btn btn-outline-info btn-sm tex text-info mx-2"
+                    >
+                      <i class="bi bi-pencil"></i> Edit
+                    </a>
+                    <button
+                      type="submit"
+                      class="btn btn-danger btn-sm"
+                      data-bs-toggle="modal"
+                      data-bs-target="#delete{{program.id}}"
+                    >
+                      <i class="bi bi-trash"></i> delete
+                    </button>
+                    <!-- Delete modal -->
+                    <div
+                      class="modal"
+                      id="delete{{program.id}}"
+                      aria-labelledby="myModalLabel2"
+                      aria-hidden="true"
+                    >
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title">
+                              You are about to delete a class
+                            </h5>
+                            <button
+                              type="button"
+                              class="btn-close"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                            >
+                              <span aria-hidden="true"></span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <p>
+                              Are you sure you want to delete {{program.name}}
+                            </p>
+                          </div>
+                          <div class="modal-footer">
+                            <button
+                              type="button"
+                              class="btn btn-secondary"
+                              data-bs-dismiss="modal"
+                            >
+                              Cancel
+                            </button>
+
+                            <form
+                              action="{% url 'delete-program' program.id %} "
+                              method="POST"
+                            >
+                              {% csrf_token %}
+                              <input
+                                type="submit"
+                                class="btn btn-danger"
+                                value="Delete"
+                              />
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                {% endfor %}
+                <!--  -->
+                {% endif%}
+              </tbody>
+            </table>
+          </div>
+          <!-- End Table with stripped rows -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

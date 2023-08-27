@@ -1,0 +1,60 @@
+{% extends 'app/dashboard/base.html' %} {% load static %}
+<!--  -->
+{% block content %}
+<section class="section dashboard">
+  <div class="row">
+    <!-- Left side columns -->
+    <div class="col-lg-8">
+      <div class="row">
+ 
+
+        <!-- Fellowship Population -->
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">School Administrators</h5>
+              <h6 ></h6>Image, Name , Role</h6>
+            </div>
+          </div>
+        </div>
+        <!-- Fellowship population -->
+      </div>
+    </div>
+    <!-- End Left side columns -->
+
+    <!-- Right side columns -->
+    <div class="col-lg-4">
+      <!-- Recent Activity -->
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Calendar <span>| Highlight</span></h5>
+
+         
+        </div>
+      </div>
+      <!-- End Recent Activity -->
+
+      <!-- Website Traffic -->
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Announcement Timeline</h5>
+          <div class="activity">
+            <div class="activity-item d-flex">
+              <div class="activite-label">Text</div>
+              <i
+                class="bi bi-dash-lg activity-badge text-success align-self-start"
+              ></i>
+
+              <div class="activity-content">Text</div>
+            </div>
+            <!-- End activity item-->
+          </div>
+        </div>
+      </div>
+      <!-- End Website Traffic -->
+    </div>
+    <!-- End Right side columns -->
+  </div>
+</section>
+{% endblock %}
+<!-- End #main -->

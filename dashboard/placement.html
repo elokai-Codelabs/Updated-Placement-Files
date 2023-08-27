@@ -1,0 +1,154 @@
+{% extends 'app/dashboard/base.html' %} {% load static %}
+<!--  -->
+{% block content %}
+<section class="section dashboard">
+  <div class="row">
+    <!-- Left side columns -->
+    <div class="col-lg-12">
+      <div class="row">
+        <!-- Fellowship Population -->
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <div style="text-align: center">
+                <h4 class="card-title">Result Entries</h4>
+                <h6>
+                  Kindly select your courses and fill out their respective
+                  grades
+                </h6>
+              </div>
+
+              <!-- Vertical Form -->
+              <form class="row g-3">
+                <div class="text-center" style="display: flex; gap: 10px">
+                  <div class="col-6">
+                    <select id="inputState" class="form-select">
+                      <option selected>DCIT101</option>
+                    </select>
+                  </div>
+                  <div class="col-6">
+                    <select id="inputState" class="form-select">
+                      <option selected>A</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="text-center" style="display: flex; gap: 10px">
+                  <div class="col-6">
+                    <select id="inputState" class="form-select">
+                      <option selected>DCIT101</option>
+                      <option>DCIT103</option>
+                      <option>DCIT104</option>
+                    </select>
+                  </div>
+                  <div class="col-6">
+                    <select id="inputState" class="form-select">
+                      <option selected>A</option>
+                      <option>B+</option>
+                      <option>B</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="text-center" style="display: flex; gap: 10px">
+                  <div class="col-6">
+                    <select id="inputState" class="form-select">
+                      <option selected>DCIT101</option>
+                      <option>DCIT103</option>
+                      <option>DCIT104</option>
+                    </select>
+                  </div>
+                  <div class="col-6">
+                    <select id="inputState" class="form-select">
+                      <option selected>A</option>
+                      <option>B+</option>
+                      <option>B</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="text-center" style="display: flex; gap: 10px">
+                  <div class="col-6">
+                    <select id="inputState" class="form-select">
+                      <option selected>DCIT101</option>
+                      <option>DCIT103</option>
+                      <option>DCIT104</option>
+                    </select>
+                  </div>
+                  <div class="col-6">
+                    <select id="inputState" class="form-select">
+                      <option selected>A</option>
+                      <option>B+</option>
+                      <option>B</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="text-center" style="display: flex; gap: 10px">
+                  <div class="col-6">
+                    <select id="inputState" class="form-select">
+                      <option selected>DCIT101</option>
+                      <option>DCIT103</option>
+                      <option>DCIT104</option>
+                    </select>
+                  </div>
+                  <div class="col-6">
+                    <select id="inputState" class="form-select">
+                      <option selected>A</option>
+                      <option>B+</option>
+                      <option>B</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="text-center" style="display: flex; gap: 10px">
+                  <div class="col-6">
+                    <select id="inputState" class="form-select">
+                      <option selected>DCIT101</option>
+                      <option>DCIT103</option>
+                      <option>DCIT104</option>
+                    </select>
+                  </div>
+                  <div class="col-6">
+                    <select id="inputState" class="form-select">
+                      <option selected>A</option>
+                      <option>B+</option>
+                      <option>B</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="text-center">
+                  <a
+                    href=""
+                    style="
+                      margin-right: 40px;
+                      border: 2px black dotted;
+                      border-radius: 10px;
+                      padding: 15px;
+                    "
+                  >
+                    <button type="submit" class="btn">
+                      <span style="margin-right: 15px">
+                        <i class="bi bi-cloud"></i>
+                      </span>
+                      <span> Upload Transcript </span>
+                    </button></a
+                  >
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                    style="padding: 15px 30px; border-radius: 0px"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+              <!-- Vertical Form -->
+            </div>
+          </div>
+        </div>
+        <!-- Fellowship population -->
+      </div>
+    </div>
+    <!-- End Left side columns -->
+  </div>
+</section>
+{% endblock %}
+<!-- End #main -->
